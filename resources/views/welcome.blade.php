@@ -43,7 +43,7 @@
                 and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
 
-            <button x-on:click="firstPara = !firstPara ,secondPara=!secondPara">Toggle</button>
+            <button @click="firstPara = !firstPara ,secondPara=!secondPara">Toggle</button>
 
             <h2 x-text="name">Dynamic Data : </h2>
 
@@ -74,16 +74,41 @@
             </button>
         </div>
 
+        <hr>
+
+        <div @foot="alert('Testing Dispatch function')">
+            <form action="" @submit.prevent>
+                <input type="text" name="first_name">
+                <!-- <button @click="$event.target.remove()">Submit</button> -->
+                <button @click="$dispatch('foot')">Submit</button>
+
+                <button @click="handleClick">Call Custom Function</button>
+
+            </form>
+        </div>
+
     </div>
+
     <script>
-        document.addEventListener('alpine:init', () => {
-            Apline.store('darkMode', {
-                on: false,
-                toggle() {
-                    this.on = !this.on
-                }
-            })
-        })
+        function handleClick(e) {
+            alert("Custom Handler Function")
+        }
+    </script>
+
+    <script>
+        $document.ready(function() {
+            // testFunction() {
+            //     alert("dd");
+            // }
+        });
+        // document.addEventListener('alpine:init', () => {
+        //     Apline.store('darkMode', {
+        //         on: false,
+        //         toggle() {
+        //             this.on = !this.on
+        //         }
+        //     })
+        // })
     </script>
 
 </body>
