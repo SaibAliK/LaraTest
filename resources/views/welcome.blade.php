@@ -17,7 +17,6 @@
         input_data: '',
         place_data: 'Enter keyword',
         firstPara: false,
-        count: 0,
         secondPara: false,
         posts:[
             {title: 'First post'},
@@ -75,16 +74,41 @@
             </button>
         </div>
 
+        <hr>
+
+        <div @foot="alert('Testing Dispatch function')">
+            <form action="" @submit.prevent>
+                <input type="text" name="first_name">
+                <!-- <button @click="$event.target.remove()">Submit</button> -->
+                <button @click="$dispatch('foot')">Submit</button>
+
+                <button @click="handleClick">Call Custom Function</button>
+
+            </form>
+        </div>
+
     </div>
+
     <script>
-        document.addEventListener('alpine:init', () => {
-            Apline.store('darkMode', {
-                on: false,
-                toggle() {
-                    this.on = !this.on
-                }
-            })
-        })
+        function handleClick(e) {
+            alert("Custom")
+        }
+    </script>
+
+    <script>
+        $document.ready(function() {
+            // testFunction() {
+            //     alert("dd");
+            // }
+        });
+        // document.addEventListener('alpine:init', () => {
+        //     Apline.store('darkMode', {
+        //         on: false,
+        //         toggle() {
+        //             this.on = !this.on
+        //         }
+        //     })
+        // })
     </script>
 
 </body>
