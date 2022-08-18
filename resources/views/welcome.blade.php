@@ -84,6 +84,18 @@
         </button>
         <span x-text="count"></span>
 
+        <hr>
+        <div x-data>
+            <template x-for="tab in $store.tabs.items">
+                ...
+            </template>
+        </div>
+
+        <div x-data>
+            <button @click="$store.tabs.current = 'first'">First Tab</button>
+            <button @click="$store.tabs.current = 'second'">Second Tab</button>
+            <button @click="$store.tabs.current = 'third'">Third Tab</button>
+        </div>
 
 
     </div>
@@ -94,6 +106,12 @@
                 toggle() {
                     this.on = !this.on
                 }
+            });
+
+            Alpine.store('tabs', {
+                current: 'first',
+
+                items: ['first', 'second', 'third'],
             })
         })
     </script>
