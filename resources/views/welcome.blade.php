@@ -17,6 +17,7 @@
         input_data: '',
         place_data: 'Enter keyword',
         firstPara: false,
+        count: 0,
         secondPara: false,
         posts:[
             {title: 'First post'},
@@ -73,6 +74,17 @@
                 Click
             </button>
         </div>
+
+        <hr>
+        <div>
+            Couter Game
+        </div>
+        <button @click="count++">
+            Increment
+        </button>
+        <span x-text="count"></span>
+
+
 
     </div>
     <script>
