@@ -91,16 +91,11 @@
 
     <script>
         function handleClick(e) {
-            alert("Custom")
+            alert("Custom");
         }
     </script>
 
     <script>
-        $document.ready(function() {
-            // testFunction() {
-            //     alert("dd");
-            // }
-        });
         // document.addEventListener('alpine:init', () => {
         //     Apline.store('darkMode', {
         //         on: false,
