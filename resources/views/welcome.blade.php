@@ -12,9 +12,10 @@
 
 <body>
     <div x-data="{ 
-        message: 'Testing Alp',
+        message: 'Testing <h3>Alpine.js</h3>',
         name: 'Maaz',
         input_data: '',
+        open: false,
         place_data: 'Enter keyword',
         firstPara: false,
         secondPara: false,
@@ -28,6 +29,7 @@
 
         <div>
             <h1 x-text="message"></h1>
+            <h1 x-html="message"></h1>
             <p x-show="firstPara" x-transition>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not
@@ -82,10 +84,22 @@
                 <!-- <button @click="$event.target.remove()">Submit</button> -->
                 <button @click="$dispatch('foot')">Submit</button>
 
+                <h1>Data Less Components</h1>
                 <button @click="handleClick">Call Custom Function</button>
 
             </form>
         </div>
+
+        <hr>
+        <h2>Testing Reusable Data</h2>
+        <div x-data="drop">
+            <button @click="toggle">Toggle</button>
+            <div x-show="open">
+                Content...
+            </div>
+        </div>
+
+        <hr>
 
     </div>
 
@@ -93,17 +107,14 @@
         function handleClick(e) {
             alert("Custom");
         }
-    </script>
 
-    <script>
-        // document.addEventListener('alpine:init', () => {
-        //     Apline.store('darkMode', {
-        //         on: false,
-        //         toggle() {
-        //             this.on = !this.on
-        //         }
-        //     })
-        // })
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('drop', () => ({
+                toggle() {
+                    this.open = !this.open
+                }
+            }))
+        });
     </script>
 
 </body>
