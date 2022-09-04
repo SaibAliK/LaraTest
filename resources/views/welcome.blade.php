@@ -99,6 +99,9 @@
             </div>
         </div>
 
+        <div x-init="console.log('I\'m being initialized!')"></div>
+
+
         <hr>
 
     </div>
@@ -109,6 +112,7 @@
         }
 
         document.addEventListener('alpine:init', () => {
+            console.log("init function is running");
             Alpine.data('drop', () => ({
                 toggle() {
                     this.open = !this.open
